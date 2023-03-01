@@ -1,14 +1,19 @@
 import { lazy, Suspense } from "react";
-import Navbar from "./components/Navbar";
-import Router from "./router";
+const Router = lazy(() => import("./router"));
+const MainLayout = lazy(() => import("./layouts/MainLayout"));
+const ContentLayout = lazy(() => import("./layouts/ContentLayout"));
+const Loading = lazy(() => import("./components/Loading"));
 const App = () => {
   return (
-    <Suspense fallback="Loading...">
-      <Navbar />
-      <Suspense fallback="Loading...">
-        <Router />
+    <MainLayout>
+      <Suspense fallback={<Loading />}>
+        <ContentLayout>
+          <Suspense fallback={<Loading />}>
+            <Router />
+          </Suspense>
+        </ContentLayout>
       </Suspense>
-    </Suspense>
+    </MainLayout>
   );
 };
 
