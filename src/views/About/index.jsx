@@ -1,10 +1,5 @@
-import ContentLayout from "../../layouts/ContentLayout";
 const About = () => {
-  return (
-    <ContentLayout>
-      <h1>About</h1>
-    </ContentLayout>
-  );
+  return <h1>About</h1>;
 };
 
 export default About;
