@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         montserrat: ["Montserrat", `sans-serif`],
       },
+      backgroundImage: {
+        "weather-image": "url('/weather.jpg')",
+      },
     },
   },
   plugins: [],
