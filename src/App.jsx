@@ -5,15 +5,15 @@ const ContentLayout = lazy(() => import("./layouts/ContentLayout"));
 const Loading = lazy(() => import("./components/Loading"));
 const App = () => {
   return (
-    <MainLayout>
-      <Suspense fallback={<Loading />}>
-        <ContentLayout>
-          <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading />}>
+      <MainLayout>
+        <Suspense fallback={<Loading />}>
+          <ContentLayout>
             <Router />
-          </Suspense>
-        </ContentLayout>
-      </Suspense>
-    </MainLayout>
+          </ContentLayout>
+        </Suspense>
+      </MainLayout>
+    </Suspense>
   );
 };
 
