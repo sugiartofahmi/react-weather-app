@@ -4,10 +4,10 @@ import Card from "../../components/Card";
 const Home = () => {
   const weather = useRecoilValue(fetchWeather);
   const [location, setLocation] = useRecoilState(locationState);
-  let temp = Math.round((weather.main.temp - 32) * 0.555);
+  let temp = weather.main.temp;
   const { name } = weather;
   const { country } = weather.sys;
-  // const main = weather.weather;
+  const main = weather.weather;
   const { feels_like, humidity } = weather.main;
   const { speed } = weather.wind;
   const changeLocation = (e) => {
@@ -38,11 +38,11 @@ const Home = () => {
             {name} - {country}
           </h2>
           <h2 className="text-5xl font-bold">
-            {temp}
+            {Math.round((temp - 32) * 0.555)}
             <span>&#8451;</span>
           </h2>
         </div>
-        {/* <h2>{main[0].main}</h2> */}
+        <h2>{main[0].main}</h2>
       </div>
       <div className="w-full flex flex-col justify-center items-center text-xl px-[7vh]">
         <Card>
