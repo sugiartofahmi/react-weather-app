@@ -7,7 +7,11 @@ const Home = () => {
   const [location, setLocation] = useRecoilState(locationState);
 
   console.log(weather);
-  return <h1>Home</h1>;
+  return (
+    <div>
+      <h1 className="text-2xl font-montserrat">home</h1>
+    </div>
+  );
 };
 
 export default Home;
