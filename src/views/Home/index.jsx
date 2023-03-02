@@ -4,7 +4,7 @@ import Card from "../../components/Card";
 const Home = () => {
   const weather = useRecoilValue(fetchWeather);
   const [location, setLocation] = useRecoilState(locationState);
-  let temp = weather.main.temp;
+  let { temp } = weather.main;
   const { name } = weather;
   const { country } = weather.sys;
   const main = weather.weather;
