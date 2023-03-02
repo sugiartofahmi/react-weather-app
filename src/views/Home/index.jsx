@@ -4,12 +4,7 @@ import Card from "../../components/Card";
 const Home = () => {
   const weather = useRecoilValue(fetchWeather);
   const [location, setLocation] = useRecoilState(locationState);
-  const { temp } = weather.main;
-  const { name } = weather;
-  const { country } = weather.sys;
-  const main = weather.weather;
-  const { feels_like, humidity } = weather.main;
-  const { speed } = weather.wind;
+
   const changeLocation = (e) => {
     if (e.key == "Enter") {
       try {
@@ -35,30 +30,32 @@ const Home = () => {
       <div className="w-full flex flex-row justify-between items-center text-xl px-[7vh]">
         <div>
           <h2 className="text-base">
-            {name} - {country}
+            {weather.name} - {weather.sys.country}
           </h2>
           <h2 className="text-5xl font-bold">
-            {Math.round((temp - 32) * 0.555)}
+            {Math.round((weather.main.temp - 32) * 0.555)}
             <span>&#8451;</span>
           </h2>
         </div>
-        <h2>{main[0].main}</h2>
+        <h2>{weather.weather[0].main}</h2>
       </div>
       <div className="w-full flex flex-col justify-center items-center text-xl px-[7vh]">
         <Card>
           <div className="flex flex-col justify-center items-center">
             <h1 className="font-semibold">
-              {Math.round((feels_like - 32) * 0.555)}
+              {Math.round((weather.main.feels_like - 32) * 0.555)}
               <span>&#8451;</span>
             </h1>
             <h1>Feels Like</h1>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="font-semibold">{humidity}%</h1>
+            <h1 className="font-semibold">{weather.main.humidity}%</h1>
             <h1>Humidity</h1>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="font-semibold">{Math.round(speed)}MPH</h1>
+            <h1 className="font-semibold">
+              {Math.round(weather.wind.speed)}MPH
+            </h1>
             <h1>Winds</h1>
           </div>
         </Card>
