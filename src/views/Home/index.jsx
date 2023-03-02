@@ -7,7 +7,7 @@ const Home = () => {
   let temp = Math.round((weather.main.temp - 32) * 0.555);
   const { name } = weather;
   const { country } = weather.sys;
-  const { main } = weather.weather[0];
+  const main = weather.weather;
   const { feels_like, humidity } = weather.main;
   const { speed } = weather.wind;
   const changeLocation = (e) => {
@@ -42,7 +42,7 @@ const Home = () => {
             <span>&#8451;</span>
           </h2>
         </div>
-        <h2>{main}</h2>
+        <h2>{main[0].main}</h2>
       </div>
       <div className="w-full flex flex-col justify-center items-center text-xl px-[7vh]">
         <Card>
