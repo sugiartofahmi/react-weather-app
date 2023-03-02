@@ -19,7 +19,7 @@ const Home = () => {
       }
     }
   };
-  console.log(weather);
+
   return (
     <div className="w-full min-h-[85vh] flex flex-col justify-between items-center text-white ">
       <div className="w-[60vh] sm:w-full px-[5vh] flex flex-col justify-center item ">
