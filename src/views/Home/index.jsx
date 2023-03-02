@@ -4,7 +4,7 @@ import Card from "../../components/Card";
 const Home = () => {
   const weather = useRecoilValue(fetchWeather);
   const [location, setLocation] = useRecoilState(locationState);
-  // const { temp } = weather.main;
+  const { temp } = weather.main;
   const { name } = weather;
   const { country } = weather.sys;
   const main = weather.weather;
@@ -38,7 +38,7 @@ const Home = () => {
             {name} - {country}
           </h2>
           <h2 className="text-5xl font-bold">
-            {/* {Math.round((temp - 32) * 0.555)} */}
+            {Math.round((temp - 32) * 0.555)}
             <span>&#8451;</span>
           </h2>
         </div>
